@@ -1,2 +1,29 @@
 # appintheair-exporter
 Scripts to convert exported data from the defunct App in the Air into other formats
+
+## Usage
+1. Export your data from App in the Air [using their instructions](https://appintheair.com/shutdown/). You should receive a `data.txt` file in your email inbox
+2. Put the `data.txt` in the directory for this repository
+3. Run the script, which will automatically look for this `data.txt` file
+
+`python3 appintheair_exporter.py`
+
+4. Review your data in the `output.csv` file
+
+## Arguments
+*additional_fields*: Use the `-a` or `--additional_fields` argument to export the following additional data when the output file is created
+* `flight_number`: Combination of the airline code (ex: AA) and flight code (ex: 1234) 
+* `aircraft_type_name`: English name of the aircraft type (ex: Boeing 737-800)
+* `aircraft_type_icao`: 3-4 character ICAO code for the aircraft type
+* `departure_date_local`: Date of departure in the departure airport's time zone in `YYYY-MM-DD` format
+* `arrival_date_local`: Date of arrival in the arrival airport's time zone in `YYYY-MM-DD` format
+* `departure_time_local`: Time of departure in the departure airport's time zone in `hh:mm:ss` format
+* `arrival_time_local`: Time of arrival in the arrival airport's time zone in `hh:mm:ss` format
+
+Example Usage:
+`python3 appintheair_exporter.py -a`
+
+*filename*: Use the `-f` or `--filename` argument to specify the filename of the exported CSV file. Make sure to include the `.csv` extension
+
+Example Usage:
+`python3 appintheair_exporter.py -f exported_data_final.csv`
