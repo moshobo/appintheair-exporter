@@ -111,17 +111,28 @@ def main():
         type=str,
         help="File name used for outputted csv. Should include .csv extension"
     )
+    parser.add_argument(
+        '-m', 
+        '--mine',
+        action='store_true',
+        help="Exclude flights that are set as other people's"
+    )
     args = parser.parse_args()
     additional_fields = args.additional_fields
+    only_mine = args.mine
 
     with open('data.txt', 'r') as file:
         finput = [line.rstrip() for line in file]
 
     flights = []
     parse_next = False
+    my_flight = False
     for i in range(len(finput)):
         if parse_next == True:
             if finput[i].split(":")[0] != "hotels":
+                if only_mine and not my_flight:
+                    parse_next = False
+                    continue
                 flight_objects = finput[i].split(";")
                 data = parse_flight_data(flight_objects, additional_fields)
                 flights.append(data)
@@ -131,6 +142,11 @@ def main():
         elif finput[i].split(":")[0] == "flights":
             parse_next = True
             continue
+        elif finput[i].split(";")[0].startswith("Ownership."):
+            if finput[i].split(";")[0].split(".")[1] == "MINE":
+                my_flight = True
+            else:
+                my_flight = False
 
     logging.info(f"{str(len(flights))} flights found")
 
