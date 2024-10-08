@@ -127,7 +127,7 @@ def main():
                     data = parse_flight_data(flight_objects, additional_fields)
                     flights.append(data)
                 except IndexError:
-                    logging.error(f"Error parsing flight data at line {i}")
+                    logging.error(f"Unable to parse flight data at line {i}")
                     continue
             else:
                 parse_next = False
