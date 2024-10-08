@@ -144,7 +144,7 @@ def main():
         writer.writeheader()
         writer.writerows(flights)
 
-    logging.info(f"Data successfully saved in output.csv")
+    logging.info(f"Data successfully saved in {filename}")
 
 if __name__ == "__main__":
     main()
