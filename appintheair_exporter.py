@@ -122,9 +122,13 @@ def main():
     for i in range(len(finput)):
         if parse_next == True:
             if finput[i].split(":")[0] != "hotels":
-                flight_objects = finput[i].split(";")
-                data = parse_flight_data(flight_objects, additional_fields)
-                flights.append(data)
+                try:
+                    flight_objects = finput[i].split(";")
+                    data = parse_flight_data(flight_objects, additional_fields)
+                    flights.append(data)
+                except IndexError:
+                    logging.error(f"Unable to parse flight data at line {i}")
+                    continue
             else:
                 parse_next = False
                 continue
