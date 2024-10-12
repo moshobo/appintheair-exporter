@@ -19,6 +19,7 @@ Scripts to convert exported data from the defunct App in the Air into other form
 * `arrival_date_local`: Date of arrival in the arrival airport's time zone in `YYYY-MM-DD` format
 * `departure_time_local`: Time of departure in the departure airport's time zone in `hh:mm:ss` format
 * `arrival_time_local`: Time of arrival in the arrival airport's time zone in `hh:mm:ss` format
+* `entry_method`: The method used to add flight data to AITA (manual or search)
 
 Example Usage:
 `python3 appintheair_exporter.py -a`
