@@ -23,6 +23,11 @@ Scripts to convert exported data from the defunct App in the Air into other form
 Example Usage:
 `python3 appintheair_exporter.py -a`
 
+*data_file*: Use the `-d` or `--data_file` argument to specify the filename of the imported TXT file from App In The Air. Make sure to include the `.txt` extension. If you do not pass in this argument, the script will automatically look for a `data.txt` file.
+
+Example Usage:
+`python3 appintheair_exporter.py -d my_data.txt`
+
 *filename*: Use the `-f` or `--filename` argument to specify the filename of the exported CSV file. Make sure to include the `.csv` extension
 
 Example Usage:

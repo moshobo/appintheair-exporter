@@ -106,6 +106,12 @@ def main():
         help="Include additional fields in exported file"
     )
     parser.add_argument(
+        '-d',
+        '--data_file',
+        type=str,
+        help="File name used for the input data. Should include .txt extension"
+    )
+    parser.add_argument(
         '-f',
         '--filename',
         type=str,
@@ -114,8 +120,15 @@ def main():
     args = parser.parse_args()
     additional_fields = args.additional_fields
 
-    with open('data.txt', 'r') as file:
-        finput = [line.rstrip() for line in file]
+    data_file = 'data.txt'
+    if args.data_file:
+        data_file = args.data_file
+
+    try:
+        with open(data_file, 'r') as file:
+            finput = [line.rstrip() for line in file]
+    except FileNotFoundError:
+        print(f"The file {data_file} does not exist.")
 
     flights = []
     parse_next = False
