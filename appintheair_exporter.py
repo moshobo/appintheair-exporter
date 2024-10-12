@@ -79,7 +79,11 @@ def parse_flight_data(flight_objects, additional_fields):
         "departure_timestamp_gmt": flight_objects[12],
         "arrival_timestamp_gmt": flight_objects[13],
         "departure_timestamp_local": flight_objects[14],
-        "arrival_timestamp_local": flight_objects[15]
+        "arrival_timestamp_local": flight_objects[15],
+        "boarding_class": flight_objects[0],
+        "seat": flight_objects[1],
+        "booking_reference": flight_objects[2],
+        "e-ticket": flight_objects[3],
     }
     if additional_fields:
         addons = {
@@ -89,7 +93,8 @@ def parse_flight_data(flight_objects, additional_fields):
             "departure_date_local": flight_objects[14][0:10],
             "arrival_date_local": flight_objects[15][0:10],
             "departure_time_local": flight_objects[14][11:],
-            "arrival_time_local": flight_objects[15][11:]
+            "arrival_time_local": flight_objects[15][11:],
+            "entry_method": flight_objects[6]
         }
     
         flight_dict = {**flight_dict, **addons}
