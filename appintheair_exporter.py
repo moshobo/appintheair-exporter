@@ -160,6 +160,8 @@ def main():
     if args.filename:
         filename = args.filename
 
+    flights = sorted(flights, key=lambda d: d['departure_timestamp_gmt'])
+
     with open(filename, 'w', newline='') as outfile:
         fieldnames = flights[0].keys()
         writer = csv.DictWriter(outfile, fieldnames=fieldnames)
