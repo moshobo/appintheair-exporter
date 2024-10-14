@@ -1,10 +1,20 @@
 # appintheair-exporter
 Scripts to convert exported data from the defunct App in the Air into other formats
 
+## Installation
+
+### With Github
+Run the following commands in your terminal to install this repository
+
+```bash
+git clone https://github.com/moshobo/appintheair-exporter.git
+cd appintheair-exporter/
+```
+
 ## Usage
 1. Export your data from App in the Air [using their instructions](https://appintheair.com/shutdown/). You should receive a `data.txt` file in your email inbox
 2. Put the `data.txt` in the directory for this repository
-3. Run the script, which will automatically look for this `data.txt` file
+3. Run the script, which will automatically look for this `data.txt` file (unless you use the `--data_file` argument)
 
 `python3 appintheair_exporter.py`
 
