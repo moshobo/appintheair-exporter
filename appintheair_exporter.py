@@ -160,13 +160,16 @@ def main():
     if args.filename:
         filename = args.filename
 
-    with open(filename, 'w', newline='') as outfile:
-        fieldnames = flights[0].keys()
-        writer = csv.DictWriter(outfile, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(flights)
-
-    logging.info(f"Data successfully saved in {filename}")
+    if len(flights) == 0:
+        logging.error(f"No flights found in {data_file}. Unable to save output")
+    else:
+        with open(filename, 'w', newline='') as outfile:
+            fieldnames = flights[0].keys()
+            writer = csv.DictWriter(outfile, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(flights)
+        
+        logging.info(f"Data successfully saved in {filename}")
 
 if __name__ == "__main__":
     main()
