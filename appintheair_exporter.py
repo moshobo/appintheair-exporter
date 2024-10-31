@@ -165,7 +165,7 @@ def main():
     else:
         flights = sorted(
             flights,
-            key=lambda d: d['departure_timestamp_gmt'],
+            key=lambda d: d['departure_timestamp_utc'],
             reverse=True
         )
         
