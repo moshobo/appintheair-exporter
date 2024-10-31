@@ -163,6 +163,12 @@ def main():
     if len(flights) == 0:
         logging.error(f"No flights found in {data_file}. Unable to save output")
     else:
+        flights = sorted(
+            flights,
+            key=lambda d: d['departure_timestamp_gmt'],
+            reverse=True
+        )
+        
         with open(filename, 'w', newline='') as outfile:
             fieldnames = flights[0].keys()
             writer = csv.DictWriter(outfile, fieldnames=fieldnames)
