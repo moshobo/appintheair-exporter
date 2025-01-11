@@ -34,10 +34,11 @@ cd appintheair-exporter/
 Example Usage:
 `python3 appintheair_exporter.py -a`
 
-*data_file*: Use the `-d` or `--data_file` argument to specify the filename of the imported TXT file from App In The Air. Make sure to include the `.txt` extension. If you do not pass in this argument, the script will automatically look for a `data.txt` file.
+*data_file*: Use the `-d` or `--data_file` argument to specify the filename of the imported TXT file from App In The Air. Make sure to include the `.txt` extension. If you do not pass in this argument, the script will automatically look for a `data.txt` file. There is an example file located at `resources/example_data.txt` that you can use to try this script out.
 
 Example Usage:
 `python3 appintheair_exporter.py -d my_data.txt`
+`python3 appintheair_exporter.py -d resources/example_data.txt`
 
 *filename*: Use the `-f` or `--filename` argument to specify the filename of the exported CSV file. Make sure to include the `.csv` extension
 
